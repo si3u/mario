@@ -60,9 +60,16 @@ class User extends ActiveRecord implements IdentityInterface
                 ROLE_ADMIN,
                 ROLE_SUPER_ADMIN
             ]],
+            [['avatar', 'cover'], 'image'],
+
+            ['birthday', 'date', 'format' => 'php:Y-m-d'],
+
             [['passwd'], 'string', 'min' => 5],
-            [['passwd'], 'filter', 'filter' => 'trim'],
             [['passwd_confirm'], 'compare', 'compareAttribute' => 'passwd', 'message' => Yii::t('app', 'Passwords do not match')],
+
+            ['gender', 'default', 'value' => GENDER_OTHER],
+            ['gender', 'in', 'range' => [GENDER_MALE, GENDER_FEMALE, GENDER_OTHER]],
+
             ['status', 'default', 'value' => STATUS_ACTIVE],
             ['status', 'in', 'range' => [STATUS_ACTIVE, STATUS_DEACTIVATED]],
         ];
