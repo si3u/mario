@@ -69,7 +69,7 @@ class RbacController extends Controller {
             $user = new User();
             $user->email = 'admin@admin.com';
             $user->name = 'Admin';
-            $user->roles = ROLE_SUPER_ADMIN;
+            $user->role = ROLE_SUPER_ADMIN;
             $user->setPassword('admin123');
             $user->generateAuthKey();
             $user->save();
