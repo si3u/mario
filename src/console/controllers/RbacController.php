@@ -3,7 +3,7 @@
 namespace console\controllers;
 
 use common\models\User;
-use onecms\rbac\OwnModelRule;
+use mario\rbac\OwnModelRule;
 use yii\console\Controller;
 use yii\db\Exception;
 use yii\helpers\Console;
@@ -14,7 +14,7 @@ class RbacController extends Controller {
         $auth->removeAll();
 
         //User
-        $user = $auth->createRole(User::ROLE_MEMBER);
+        $user = $auth->createRole(ROLE_MEMBER);
         $user->description = 'Member - Tài khoản người dùng bình thường';
         $auth->add($user);
 
@@ -23,7 +23,7 @@ class RbacController extends Controller {
         $auth->add($ownModelRule);
 
         //Editor
-        $editor = $auth->createRole(User::ROLE_EDITOR);
+        $editor = $auth->createRole(ROLE_EDITOR);
         $editor->description = 'Editor - Tài khoản người dùng thêm sửa xóa bài viết và tối ưu hóa bài viết chuẩn SEO';
         $auth->add($editor);
         $auth->addChild($editor, $user);
@@ -35,19 +35,19 @@ class RbacController extends Controller {
         $auth->addChild($editor, $accessBackend);
 
         //Manager
-        $manager = $auth->createRole(User::ROLE_MANAGER);
+        $manager = $auth->createRole(ROLE_MANAGER);
         $manager->description = 'Manager - Có quyền quản lý';
         $auth->add($manager);
         $auth->addChild($manager, $editor);
 
         //Admin
-        $admin = $auth->createRole(User::ROLE_ADMIN);
+        $admin = $auth->createRole(ROLE_ADMIN);
         $admin->description = 'Admin';
         $auth->add($admin);
         $auth->addChild($admin, $manager);
 
         //Admin
-        $super_admin = $auth->createRole(User::ROLE_SUPER_ADMIN);
+        $super_admin = $auth->createRole(ROLE_SUPER_ADMIN);
         $super_admin->description = 'Super Admin';
         $auth->add($super_admin);
         $auth->addChild($super_admin, $admin);
@@ -57,7 +57,7 @@ class RbacController extends Controller {
             $user = new User();
             $user->email = 'admin@admin.com';
             $user->name = 'Admin';
-            $user->roles = User::ROLE_SUPER_ADMIN;
+            $user->roles = ROLE_SUPER_ADMIN;
             $user->setPassword('admin123');
             $user->generateAuthKey();
             $user->save();
