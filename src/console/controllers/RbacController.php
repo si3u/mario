@@ -42,15 +42,15 @@ class RbacController extends Controller {
 
         //Manager
         $accountant = $auth->createRole(ROLE_ACCOUNTANT);
-        $manager->description = 'Manager - Có quyền quản lý';
-        $auth->add($manager);
-        $auth->addChild($manager, $editor);
+        $accountant->description = 'Manager - Có quyền quản lý';
+        $auth->add($accountant);
+        $auth->addChild($accountant, $sales);
 
         //Manager
         $manager = $auth->createRole(ROLE_MANAGER);
         $manager->description = 'Manager - Có quyền quản lý';
         $auth->add($manager);
-        $auth->addChild($manager, $editor);
+        $auth->addChild($manager, $accountant);
 
         //Admin
         $admin = $auth->createRole(ROLE_ADMIN);
