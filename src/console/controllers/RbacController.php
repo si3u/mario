@@ -34,6 +34,18 @@ class RbacController extends Controller {
         $auth->add($accessBackend);
         $auth->addChild($editor, $accessBackend);
 
+        //Sales
+        $sales = $auth->createRole(ROLE_SALES);
+        $sales->description = 'Manager - Có quyền quản lý';
+        $auth->add($sales);
+        $auth->addChild($sales, $editor);
+
+        //Manager
+        $accountant = $auth->createRole(ROLE_ACCOUNTANT);
+        $manager->description = 'Manager - Có quyền quản lý';
+        $auth->add($manager);
+        $auth->addChild($manager, $editor);
+
         //Manager
         $manager = $auth->createRole(ROLE_MANAGER);
         $manager->description = 'Manager - Có quyền quản lý';
