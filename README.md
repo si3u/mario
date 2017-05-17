@@ -13,6 +13,8 @@ user
   - bio
   - avatar
   - cover
+  - birthday
+  - gender
   
 mailbox
   - name
