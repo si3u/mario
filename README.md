@@ -14,3 +14,11 @@ user
   - avatar
   - cover
   
+mailbox
+  - name
+  - email
+  - phone
+  - message
+  - created_at
+  - updated_at
+```
