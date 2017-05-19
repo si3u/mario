@@ -23,4 +23,16 @@ mailbox
   - message
   - created_at
   - updated_at
+  
+manufacturer
+  - name
+  - image
+  - website
+  - phone
+  - address
+  - email
+  - hotline
+  - description
+  - created_at
+  - updated_at
 ```
