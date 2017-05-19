@@ -19,9 +19,9 @@ class m170519_112828_create_page_table extends Migration
             'image' => $this->string(),
             'content' => $this->getDb()->getSchema()->createColumnSchemaBuilder('longtext'),
 
-            'meta_title' => $this->string(),
-            'meta_desc' => $this->string(),
-            'meta_keyword' => $this->string(),
+            'meta_title' => $this->string(70),
+            'meta_desc' => $this->string(160),
+            'meta_keyword' => $this->string(255),
             'used' => $this->smallInteger()->defaultValue(0),
             'published' => $this->smallInteger()->defaultValue(STATUS_ACTIVE),
             'layout' => $this->string(50)->notNull()->defaultValue('view'),

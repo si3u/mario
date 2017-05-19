@@ -55,6 +55,9 @@ class Page extends \yii\db\ActiveRecord
             [['title', 'slug', 'image'], 'string', 'max' => 255],
             [['layout'], 'default', 'value' => 'view'],
             [['layout'], 'string', 'max' => 50],
+            [['meta_title'], 'string', 'max' => 70],
+            [['meta_desc'], 'string', 'max' => 160],
+            [['meta_keyword'], 'string', 'max' => 255]
         ];
     }
 
@@ -71,6 +74,9 @@ class Page extends \yii\db\ActiveRecord
             'content' => Yii::t('app', 'Content'),
             'published' => Yii::t('app', 'Published'),
             'layout' => Yii::t('app', 'Layout'),
+            'meta_title' => Yii::t('app', 'Meta Title'),
+            'meta_desc' => Yii::t('app', 'Meta Desc'),
+            'meta_keyword' => Yii::t('app', 'Meta Keyword'),
             'created_by' => Yii::t('app', 'Created By'),
             'updated_by' => Yii::t('app', 'Updated By'),
             'created_at' => Yii::t('app', 'Created At'),

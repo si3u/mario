@@ -27,4 +27,7 @@ return [
     'Updated At' => 'Ngày cập nhật',
     'Mailboxes' => 'Thư liên hệ',
     'Verify Code' => 'Mã xác nhận',
+    'Meta Title' => 'SEO - Tiêu đề',
+    'Meta Desc' => 'SEO - Mô tả',
+    'Meta Keyword' => 'SEO - Từ khóa',
 ];
