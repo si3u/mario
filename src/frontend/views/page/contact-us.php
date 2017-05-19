@@ -5,6 +5,7 @@
 /* @var $model \frontend\models\ContactForm */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 
 $this->params['breadcrumbs'][] = $this->title;
@@ -45,12 +46,18 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 <?php
+$url = Url::to(['site/mail']);
 $js = <<<JS
     (function($) {
         'use strict';
         $('#contact-us').submit(function(e) {
            e.preventDefault();
-           $('#btn-contact-us').setAttribute('disabled', true);
+           $('#btn-contact-us').attr('disabled', true);
+           $.ajax({
+                type: 'POST',
+                url: '$url',
+                data: $('#contact-us').serialize()
+           });
         });
     })(jQuery);
 JS;
