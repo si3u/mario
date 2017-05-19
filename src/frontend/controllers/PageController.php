@@ -16,18 +16,6 @@ class PageController extends \yii\web\Controller
         return $this->render($node->layout);
     }
 
-    public function actionContactUs() {
-        $model = new Mailbox;
-        $this->findBySlug('lien-he');
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['site/index']);
-        } else {
-            return $this->render('ContactUs', [
-                'model' => $model
-            ]);
-        }
-    }
-
     /**
      * Finds the Page model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

@@ -64,8 +64,8 @@ class User extends ActiveRecord implements IdentityInterface
 
             ['birthday', 'date', 'format' => 'php:Y-m-d'],
 
-            [['passwd'], 'string', 'min' => 5],
-            [['passwd_confirm'], 'compare', 'compareAttribute' => 'passwd', 'message' => Yii::t('app', 'Passwords do not match')],
+            [['passwd'], 'string', 'min' => 5, 'on' => 'register'],
+            [['passwd_confirm'], 'compare', 'compareAttribute' => 'passwd', 'message' => Yii::t('app', 'Passwords do not match'), 'on' => 'register'],
 
             ['gender', 'default', 'value' => GENDER_OTHER],
             ['gender', 'in', 'range' => [GENDER_MALE, GENDER_FEMALE, GENDER_OTHER]],
