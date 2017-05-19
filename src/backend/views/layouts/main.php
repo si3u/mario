@@ -134,10 +134,11 @@ AppAsset::register($this);
             <?= Menu::widget([
                 'items' => [
                     ['label' => 'Dashboard', 'url' => ['site/index'], 'icon' => 'fa fa-dashboard'],
-                    ['label' => 'Thành viên', 'url' => ['member/index'], 'icon' => 'fa fa-user'],
+                    ['label' => 'Liên hệ', 'url' => ['mailbox/index'], 'icon' => 'fa fa-user'],
+                    ['label' => 'Thành viên', 'url' => ['user/index'], 'icon' => 'fa fa-user'],
                     ['label' => 'Trang cá nhân', 'url' => null, 'options' => ['class' => 'header']],
-                    ['label' => 'Hồ sơ', 'url' => ['member/profile', 'id' => Yii::$app->user->identity->getId()], 'icon' => 'fa fa-circle-o text-aqua'],
-                    ['label' => 'Đổi mật khẩu', 'url' => ['member/password', 'id' => Yii::$app->user->identity->getId()], 'icon' => 'fa fa-circle-o text-yellow'],
+                    ['label' => 'Hồ sơ', 'url' => ['user/profile', 'id' => Yii::$app->user->identity->getId()], 'icon' => 'fa fa-circle-o text-aqua'],
+                    ['label' => 'Đổi mật khẩu', 'url' => ['user/password', 'id' => Yii::$app->user->identity->getId()], 'icon' => 'fa fa-circle-o text-yellow'],
                 ],
             ]); ?>
         </section>
