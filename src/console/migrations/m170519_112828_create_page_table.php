@@ -18,6 +18,11 @@ class m170519_112828_create_page_table extends Migration
             'slug' => $this->string()->notNull(),
             'image' => $this->string(),
             'content' => $this->getDb()->getSchema()->createColumnSchemaBuilder('longtext'),
+
+            'meta_title' => $this->string(),
+            'meta_desc' => $this->string(),
+            'meta_keyword' => $this->string(),
+            'used' => $this->smallInteger()->defaultValue(0),
             'published' => $this->smallInteger()->defaultValue(STATUS_ACTIVE),
             'layout' => $this->string(50)->notNull()->defaultValue('view'),
             'created_by' => $this->integer()->notNull(),

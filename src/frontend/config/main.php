@@ -40,7 +40,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/' => 'site/index'
+                'lien-he' => 'page/contact-us',
+                '<slug:[A-Za-z0-9-_.]+>' => 'page/view',
+                '/' => 'site/index',
             ],
         ],
     ],

@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "page".
@@ -27,6 +28,19 @@ class Page extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'page';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                'slugAttribute' => 'slug',
+                'immutable' => true,
+                'ensureUnique' => true,
+            ],
+        ];
     }
 
     /**
