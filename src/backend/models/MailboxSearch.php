@@ -65,6 +65,7 @@ class MailboxSearch extends Mailbox
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'published' => 1,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

@@ -22,7 +22,7 @@ class Mailbox extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'mailbox';
+        return '{{%mailbox}}';
     }
 
     /**
@@ -35,6 +35,8 @@ class Mailbox extends \yii\db\ActiveRecord
             [['message'], 'string'],
             [['created_at', 'updated_at'], 'integer'],
             [['name', 'email', 'phone'], 'string', 'max' => 255],
+            ['published', 'default', 'value' => STATUS_ACTIVE],
+            ['published', 'in', 'range' => [STATUS_ACTIVE, STATUS_DEACTIVATED]],
         ];
     }
 

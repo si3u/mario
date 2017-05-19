@@ -20,4 +20,10 @@ return [
     'Password Confirm' => 'Xác nhận mật khẩu',
     'Deactivated' => 'Ngừng kích hoạt',
     'Roles' => 'Quyền hạn',
+    'Name' => 'Họ và tên',
+    'Phone' => 'Số điện thoại',
+    'Message' => 'Tin nhắn',
+    'Created At' => 'Ngày tạo',
+    'Updated At' => 'Ngày cập nhật',
+    'Mailboxes' => 'Thư liên hệ',
 ];
