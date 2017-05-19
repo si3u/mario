@@ -12,11 +12,13 @@ use Yii;
  * @property string $email
  * @property string $phone
  * @property string $message
+ * @property string $verifyCode
  * @property integer $created_at
  * @property integer $updated_at
  */
 class Mailbox extends \yii\db\ActiveRecord
 {
+    public $verifyCode;
     /**
      * @inheritdoc
      */
@@ -37,6 +39,7 @@ class Mailbox extends \yii\db\ActiveRecord
             [['name', 'email', 'phone'], 'string', 'max' => 255],
             ['published', 'default', 'value' => STATUS_ACTIVE],
             ['published', 'in', 'range' => [STATUS_ACTIVE, STATUS_DEACTIVATED]],
+            ['verifyCode', 'captcha'],
         ];
     }
 
@@ -51,6 +54,7 @@ class Mailbox extends \yii\db\ActiveRecord
             'email' => Yii::t('app', 'Email'),
             'phone' => Yii::t('app', 'Phone'),
             'message' => Yii::t('app', 'Message'),
+            'verifyCode' => Yii::t('app', 'Verify Code'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];

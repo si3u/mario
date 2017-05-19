@@ -26,4 +26,5 @@ return [
     'Created At' => 'Ngày tạo',
     'Updated At' => 'Ngày cập nhật',
     'Mailboxes' => 'Thư liên hệ',
+    'Verify Code' => 'Mã xác nhận',
 ];

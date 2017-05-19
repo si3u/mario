@@ -35,4 +35,14 @@ manufacturer
   - description
   - created_at
   - updated_at
+page
+  - title
+  - slug
+  - image
+  - content
+  - meta_title
+  - meta_description
+  - meta_keyword
+  - created_at
+  - updated_at
 ```
