@@ -218,7 +218,7 @@ class SiteController extends Controller
         if(Yii::$app->request->isAjax) {
             $model = new Mailbox();
             if($model->load(Yii::$app->request->post()) && $model->save()) {
-                $this->redirect(['site/index']);
+                $this->redirect(['page/view', 'slug' => 'lien-he']);
             } else {
                 Yii::$app->response->statusCode = 422;
                 return [

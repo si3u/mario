@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col-lg-5">
                 <form method="post" id="contact-us" role="form">
+                    <div id="contact-us-success"></div>
                     <div class="form-group">
                         <label for="name">Họ và tên</label>
                         <input type="text" name="Mailbox[name]" id="name" class="form-control" autofocus/>
@@ -58,12 +59,18 @@ $js = <<<JS
                 url: '$url',
                 data: $('#contact-us').serialize(),
                 success: function(data) {
-                    console.log(data);
                     $('#btn-contact-us').removeAttr('disabled');
                 },
                 error: function(err) {
-                    console.log(err.responseText.message);
                     $('#btn-contact-us').removeAttr('disabled');
+                    $('html, body').animate({
+                        scrollTop: $('body').offset().top
+                    }, 500);
+                    $('#contact-us').find('.text-danger').remove();
+                    var errors = JSON.parse(err.responseText).message;
+                    Object.keys(errors).forEach(function(key) {
+                        $('#'+key).after('<p class="text-danger">' + errors[key] + '</p>');
+                    });
                 }
            });
         });
