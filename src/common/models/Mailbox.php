@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "mailbox".
@@ -18,7 +19,6 @@ use Yii;
  */
 class Mailbox extends \yii\db\ActiveRecord
 {
-    public $verifyCode;
     /**
      * @inheritdoc
      */
@@ -27,19 +27,29 @@ class Mailbox extends \yii\db\ActiveRecord
         return '{{%mailbox}}';
     }
 
+    public function behaviors()
+    {
+        return [
+          TimestampBehavior::className(),
+        ];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'email', 'message', 'created_at', 'updated_at'], 'required'],
+            [['name', 'email', 'message'], 'required'],
             [['message'], 'string'],
             [['created_at', 'updated_at'], 'integer'],
             [['name', 'email', 'phone'], 'string', 'max' => 255],
+            [['email'], 'email'],
+            [['name'], 'trim'],
+            [['phone'], 'string', 'min' => 6],
+            [['phone'], 'match', 'pattern' => '/^[\d|\+|\(]+[\)|\d|\s|-]*[\d]$/'],
             ['published', 'default', 'value' => STATUS_ACTIVE],
             ['published', 'in', 'range' => [STATUS_ACTIVE, STATUS_DEACTIVATED]],
-            ['verifyCode', 'captcha'],
         ];
     }
 

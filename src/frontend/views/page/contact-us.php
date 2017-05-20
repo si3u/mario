@@ -22,15 +22,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 <form method="post" id="contact-us" role="form">
                     <div class="form-group">
                         <label for="name">Họ và tên</label>
-                        <input name="Mailbox[name]" id="name" class="form-control" autofocus/>
+                        <input type="text" name="Mailbox[name]" id="name" class="form-control" autofocus/>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input name="Mailbox[email]" id="email" class="form-control"/>
+                        <input type="text" name="Mailbox[email]" id="email" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="phone">Số điện thoại</label>
-                        <input name="Mailbox[phone]" id="phone" class="form-control"/>
+                        <input type="text" name="Mailbox[phone]" id="phone" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="message">Nội dung</label>
@@ -56,7 +56,15 @@ $js = <<<JS
            $.ajax({
                 type: 'POST',
                 url: '$url',
-                data: $('#contact-us').serialize()
+                data: $('#contact-us').serialize(),
+                success: function(data) {
+                    console.log(data);
+                    $('#btn-contact-us').removeAttr('disabled');
+                },
+                error: function(err) {
+                    console.log(err.responseText.message);
+                    $('#btn-contact-us').removeAttr('disabled');
+                }
            });
         });
     })(jQuery);

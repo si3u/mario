@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Mailbox;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -12,6 +13,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\Response;
 
 /**
  * Site controller
@@ -212,6 +214,22 @@ class SiteController extends Controller
     }
 
     public function actionMail() {
-
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if(Yii::$app->request->isAjax) {
+            $model = new Mailbox();
+            if($model->load(Yii::$app->request->post()) && $model->save()) {
+                $this->redirect(['site/index']);
+            } else {
+                Yii::$app->response->statusCode = 422;
+                return [
+                    'message' => $model->getFirstErrors(),
+                ];
+            }
+        } else {
+            Yii::$app->response->statusCode = 500;
+            return [
+                'message' => 'Bạn không có quyền thực thi'
+            ];
+        }
     }
 }
