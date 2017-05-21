@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Hộp thư'), 'url' 
 $this->params['breadcrumbs'][] = ['label' => $model->page, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
-<div class="panel-body mailbox-update">
+<div class="box mailbox-update">
 <div class="box-body">
     <?= $this->render('_form', [
         'model' => $model,

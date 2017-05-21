@@ -11,8 +11,8 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('app', 'Quản lý SEO');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="panel-body mailbox-index">
-    <div class="box-body">
+<div class="box mailbox-index">
+    <div class="box-body no-padding">
         <?php Pjax::begin(); ?>    <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'columns' => [
