@@ -16,7 +16,7 @@ class m170519_084755_mailbox extends Migration
             'name' => $this->string()->notNull(),
             'email' => $this->string()->notNull(),
             'phone' => $this->string(),
-            'message' => $this->text()->notNull(),
+            'message' => $this->text(),
             'published' => $this->smallInteger()->defaultValue(STATUS_ACTIVE),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
