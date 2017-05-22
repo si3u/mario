@@ -4,8 +4,8 @@ return [
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=mario',
-            'username' => 'root',
-            'password' => 'root',
+            'username' => 'mario',
+            'password' => 'mario',
             'charset' => 'utf8',
         ],
         'mailer' => [
@@ -20,7 +20,6 @@ return [
                 'encryption' => null,
             ],
             'useFileTransport' => false,
-            'useFileTransport' => true,
         ],
     ],
 ];
